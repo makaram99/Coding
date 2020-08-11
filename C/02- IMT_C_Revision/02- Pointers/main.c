@@ -105,9 +105,8 @@ int main()
 
     int j = sizeof (int);       // int is compiler and machine dependant
 
-    char logic = 1;
-    char arr_bytes [5];
-    for (char i = 0; i<j; i++)   // Check for little or big endian
+    char logic = 1;             // To check for (0111 1101)loop
+    for (char i = 0; i<j; i++)  // Check for little or big endian
     {
         arr[i] = *ptr4;
         printf("Prt4 = %d \n", *ptr4);                  //print value of *ptr4
@@ -116,12 +115,11 @@ int main()
             logic = 0;
         printf("byte %d = %x \n", i, *(ptr4 ++));
     }
-    for (char i = 0; i<j; i++)
-        printf("Arr_bytes[%d] = %d \n",i,arr_bytes[i]);
-    if (logic == 0)
-        printf("Big Endianess");
+    if (logic == 1)
+        printf("Little Endianess \n");     // Best case
     else
-        printf("Little Endianess");
+        printf("Big Endianess \n");        // Worst Case
+
     // It's Little Endian cuz prints LSB at least address
 
     printf("\n");               //New Line for isolation in command line
